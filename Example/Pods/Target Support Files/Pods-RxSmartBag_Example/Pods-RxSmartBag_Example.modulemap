@@ -1,0 +1,6 @@
+framework module Pods_RxSmartBag_Example {
+  umbrella header "Pods-RxSmartBag_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

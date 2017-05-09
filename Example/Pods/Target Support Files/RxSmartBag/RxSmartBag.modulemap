@@ -1,0 +1,6 @@
+framework module RxSmartBag {
+  umbrella header "RxSmartBag-umbrella.h"
+
+  export *
+  module * { export * }
+}
