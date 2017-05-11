@@ -1,8 +1,8 @@
 # RxSmartBag
 
-[![Version](https://img.shields.io/cocoapods/v/RxSmartBag.svg?style=flat)](http://cocoapods.org/pods/RxSmartBag)
-[![License](https://img.shields.io/cocoapods/l/RxSmartBag.svg?style=flat)](http://cocoapods.org/pods/RxSmartBag)
-[![Platform](https://img.shields.io/cocoapods/p/RxSmartBag.svg?style=flat)](http://cocoapods.org/pods/RxSmartBag)
+[![Language](https://img.shields.io/badge/Language-Swift-blue.svg)](https://img.shields.io/badge/Language-Swift-blue.svg)
+[![License](https://img.shields.io/badge/LICENSE-MIT-orange.svg)](https://img.shields.io/badge/LICENSE-MIT-orange.svg)
+[![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)
 
 ## About
 
