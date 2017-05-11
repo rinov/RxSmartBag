@@ -1,8 +1,8 @@
 {
   "name": "RxSmartBag",
   "version": "0.1.0",
-  "summary": "A short description of RxSmartBag.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "An automatic dispose bag for Rx.",
+  "description": "An automatic dispose bag for RxSwift written in swift3.",
   "homepage": "https://github.com/rinov/RxSmartBag",
   "license": {
     "type": "MIT",
@@ -18,5 +18,10 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "RxSmartBag/Classes/**/*"
+  "source_files": "RxSmartBag/Classes/**/*",
+  "dependencies": {
+    "RxSwift": [
+      "~> 3.0"
+    ]
+  }
 }
