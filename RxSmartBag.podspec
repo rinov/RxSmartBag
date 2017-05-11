@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxSmartBag'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'An automatic dispose bag for Rx.'
   s.description      = <<-DESC
 A simple way to omit declararing DisposeBag in anywhere if the object inherit from NSObject.

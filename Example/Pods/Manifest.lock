@@ -1,7 +1,7 @@
 PODS:
   - Nimble (5.1.1)
   - Quick (1.0.0)
-  - RxSmartBag (0.1.0):
+  - RxSmartBag (1.0.1):
     - RxSwift (~> 3.0)
   - RxSwift (3.4.0)
 
@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
-  RxSmartBag: 689ee2663b0719edbb22adbb64b54ab24e09e6f2
+  RxSmartBag: 65ea6047871c9e6a9b790675d00cc6fc3e478cf0
   RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
 
 PODFILE CHECKSUM: 893c5d92c1824968167de8709e0099fca4662e00

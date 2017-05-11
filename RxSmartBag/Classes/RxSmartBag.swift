@@ -50,3 +50,7 @@ public extension Reactive where Base: NSObject {
         return base.smartBag
     }
 }
+
+public func += (lhs: DisposeBag, rhs: Disposable) {
+    rhs.disposed(by: lhs)
+}

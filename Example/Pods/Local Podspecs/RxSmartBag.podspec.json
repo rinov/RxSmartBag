@@ -1,8 +1,8 @@
 {
   "name": "RxSmartBag",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "summary": "An automatic dispose bag for Rx.",
-  "description": "An automatic dispose bag for RxSwift written in swift3.",
+  "description": "A simple way to omit declararing DisposeBag in anywhere if the object inherit from NSObject.",
   "homepage": "https://github.com/rinov/RxSmartBag",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/rinov/RxSmartBag.git",
-    "tag": "0.1.0"
+    "tag": "1.0.1"
   },
   "platforms": {
     "ios": "8.0"
