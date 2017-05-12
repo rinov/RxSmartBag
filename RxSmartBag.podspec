@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name             = 'RxSmartBag'
-  s.version          = '1.0.1'
-  s.summary          = 'An automatic dispose bag for Rx.'
+  s.version          = '1.0.2'
+  s.summary          = 'A useful dispose bag for RxSwift.'
   s.description      = <<-DESC
-A simple way to omit declararing DisposeBag in anywhere if the object inherit from NSObject.
+A simple way to omit declararing DisposeBag.
                        DESC
 
   s.homepage         = 'https://github.com/rinov/RxSmartBag'

@@ -6,11 +6,20 @@
 
 ## About
 
-A simple way to omit declararing `DisposeBag` in anywhere if the object inherit from `NSObject`.
+A simple way to omit declararing `DisposeBag`.
 
 ## Example
 
 ```swift
+import UIKit
+import RxSmartBag
+
+extension UIViewController: SmartBagManagerable {}
+```
+
+```swift
+import RxSmartBag
+
 class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,6 +30,11 @@ class ViewController: UIViewController {
     observable.subscribe(...).disposed(by: smartBag)
 }
 ```
+
+## Features
+[x] Support all types(non-NSObject)
+[x] Bind operator
+
 ## Installation
 
 RxSmartBag is available through [CocoaPods](http://cocoapods.org). To install

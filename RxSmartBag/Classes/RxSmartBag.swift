@@ -9,48 +9,56 @@
 import Foundation
 import RxSwift
 
-public extension NSObject {
-
-    struct SmartBag {
+// `AllocatedObject` is used for associated object.
+extension DisposeBag {
+    struct AllocatedObject {
         static var instance = DisposeBag()
     }
+}
 
+//`SmartBagManagerable` represents that having a stored property of dispose bag by automatically.
+public protocol SmartBagManagerable {}
+
+// Implements smartBag by objective-c runtime functions.
+public extension SmartBagManagerable {
     var smartBag: DisposeBag {
         get {
             var disposeBag: DisposeBag!
             synclonized {
-                if let lookup = objc_getAssociatedObject(self, &SmartBag.instance) as? DisposeBag {
+                if let lookup = objc_getAssociatedObject(self, &DisposeBag.AllocatedObject.instance) as? DisposeBag {
                     disposeBag = lookup
                 }else{
-                    self.smartBag = DisposeBag()
-                    disposeBag = self.smartBag
+                    // If a new dispose bag were setted,`smartBag` will release current disposable reference immediately.
+                    disposeBag = associateObject(newValue: DisposeBag())
                 }
             }
             return disposeBag
         }
         set {
-            synclonized {
-                objc_setAssociatedObject(self, &SmartBag.instance, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            }
+            associateObject(newValue: newValue)
         }
+    }
+}
+
+private extension SmartBagManagerable {
+    
+    func synclonized(_ closure: () -> ()) {
+        objc_sync_enter(self)
+        defer { objc_sync_exit(self) }
+        closure()
+    }
+    
+    @discardableResult
+    func associateObject(newValue: DisposeBag) -> DisposeBag {
+        synclonized {
+            objc_setAssociatedObject(self, &DisposeBag.AllocatedObject.instance, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        return newValue
     }
     
 }
 
-private extension NSObject {
-    func synclonized(_ closure: () -> ()) {
-        DispatchQueue.global().sync {
-            closure()
-        }
-    }
-}
-
-public extension Reactive where Base: NSObject {
-    var smartBag: DisposeBag {
-        return base.smartBag
-    }
-}
-
+// For more simply syntax, like `smartBag += A.subscribe(...)`.
 public func += (lhs: DisposeBag, rhs: Disposable) {
     rhs.disposed(by: lhs)
 }
