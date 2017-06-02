@@ -23,14 +23,14 @@ public protocol SmartBagManagerable {}
 public extension SmartBagManagerable {
     var smartBag: DisposeBag {
         get {
-            var disposeBag: DisposeBag!
-            synclonized {
-                if let lookup = objc_getAssociatedObject(self, &DisposeBag.AllocatedObject.instance) as? DisposeBag {
-                    disposeBag = lookup
-                }else{
-                    // If a new dispose bag were setted,`smartBag` will release current disposable reference immediately.
-                    disposeBag = associateObject(newValue: DisposeBag())
-                }
+            objc_sync_enter(self); defer { objc_sync_exit(self) }
+            
+            let disposeBag: DisposeBag
+            if let lookup = objc_getAssociatedObject(self, &DisposeBag.AllocatedObject.instance) as? DisposeBag {
+                disposeBag = lookup
+            } else {
+                // If a new dispose bag were setted,`smartBag` will release current disposable reference immediately.
+                disposeBag = associateObject(newValue: DisposeBag())
             }
             return disposeBag
         }
