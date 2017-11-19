@@ -12,18 +12,40 @@ import RxSwift
 // Use `smartBag`
 import RxSmartBag
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
-    let observable = Observable.of(1,2,3,4,5)
+    let text = Variable<String>("RxSmartBag")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // `smartBag` is a dispose bag and automatically released when parent is deinit.
-        smartBag += observable.subscribe(onNext: { value in
-            print(value)
-        })
+        // `smartBag` is a dispose bag and automatically released when `ViewController` is deinit.
         
-    }
+        // Example1:
+        text
+            .asObservable()
+            .map { "Text(1) = \($0)" }
+            .subscribe(onNext: { message in
+                print(message)
+            })
+            .disposed(by: smartBag)
+        
+        // Example2:
+        text
+            .asObservable()
+            .map { "Text(2) = \($0)" }
+            .subscribe(onNext: { message in
+                print(message)
+            })
+            .disposed(by: self)
 
+        // Example3:
+        smartBag += text
+            .asObservable()
+            .map { "Text(3) = \($0)" }
+            .subscribe(onNext: { message in
+                print(message)
+            })
+
+    }
 }

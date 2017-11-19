@@ -9,4 +9,5 @@
 import UIKit
 import RxSmartBag
 
+// Extension for Adding `smartBag` into `UIViewController`.
 extension UIViewController: SmartBagManagerable {}

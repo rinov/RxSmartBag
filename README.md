@@ -25,15 +25,18 @@ class ViewController: UIViewController {
     super.viewDidLoad()
 
     // `smartBag` is able to use without declararing, and can bind simply by operator.
-    smartBag += observable.subscribe(...)
-    // or
+    
+    // Example 1:
     observable.subscribe(...).disposed(by: smartBag)
+    
+    // Example 2:
+    observable.subscribe(...).disposed(by: self)
+    
+    // Example 3:
+    smartBag += observable.subscribe(...)
+
 }
 ```
-
-## Features
-[x] Support all types(non-NSObject)
-[x] Bind operator
 
 ## Installation
 
@@ -43,6 +46,9 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "RxSmartBag"
 ```
+
+Swift3: `pod "RxSmartBag", "~> 1.0.2"`
+Swift4: `pod "RxSmartBag", "~> 2.0.0"`
 
 ## Author
 
