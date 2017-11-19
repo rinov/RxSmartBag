@@ -48,6 +48,7 @@ pod "RxSmartBag"
 ```
 
 Swift3: `pod "RxSmartBag", "~> 1.0.2"`
+
 Swift4: `pod "RxSmartBag", "~> 2.0.0"`
 
 ## Author
